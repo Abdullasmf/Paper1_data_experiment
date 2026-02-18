@@ -538,7 +538,7 @@ def main(preset_name: str = "S0", batch=8, dataset: str = "L_bracket", data_perc
         None  # set to an int to sample per-geometry points per step
     )
     # Early stopping
-    early_stopping_patience: int = 40
+    early_stopping_patience: int = 100
     early_stopping_min_delta: float = 0.0
     # Architecture
     latent_dim: int = int(_cfg["latent_dim"])  # encoder latent size
