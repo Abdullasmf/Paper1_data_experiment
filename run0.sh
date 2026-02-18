@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=Run0
-#SBATCH --output=PointNetMLP_Paper1/GPU0.log
-#SBATCH --error=PointNetMLP_Paper1/GPU0.log
+#SBATCH --output=Paper1_data_experiment/GPU0.log
+#SBATCH --error=Paper1_data_experiment/GPU0.log
 #SBATCH --time=24:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
