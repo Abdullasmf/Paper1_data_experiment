@@ -290,6 +290,11 @@ def train(
     mse = nn.MSELoss()
     t0 = time.time()
     epochs_since_improve = 0
+    
+    # Initialize loss history tracking
+    train_loss_history = []
+    val_loss_history = []
+    
     for epoch in range(1, epochs + 1):
         epoch_t0 = time.time()
         model.train()
@@ -444,6 +449,10 @@ def train(
         print(
             f"Epoch {epoch:03d} | train MSE: {train_loss:.6f} | val MSE: {val_loss:.6f} | val MSE(MPa^2): {val_loss_mpa:.3f} | R2(MPa): {r2_mpa:.4f} | lr: {scheduler.get_last_lr()[0]:.2e} | epoch: {epoch_dt:.1f}s"
         )
+        
+        # Record loss history
+        train_loss_history.append(train_loss)
+        val_loss_history.append(val_loss)
 
         # Checkpoint best
         if val_loss < (best_val - early_stopping_min_delta):
@@ -461,6 +470,8 @@ def train(
                         "epochs_trained": epoch,
                         "best_val": best_val,
                     },
+                    "train_loss_history": train_loss_history,
+                    "val_loss_history": val_loss_history,
                 }
                 # Convenience for validators expecting this key name
                 ckpt["best_val_loss"] = best_val
