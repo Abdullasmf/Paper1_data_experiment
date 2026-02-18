@@ -40,6 +40,9 @@ def simulate_data_split(n_geoms: int, data_perc: int):
     print(f"  Validation indices (first 10): {sorted(val_idx)[:10]}")
     
     # Step 3: Subsample training data if needed
+    # Note: Seed is reset here (matching Training_script.py implementation) to ensure
+    # reproducible subsampling. This is important because other operations between 
+    # the initial split and this subsampling may have used random functions.
     if data_perc < 100:
         set_seed(42)
         n_train = len(train_idx)

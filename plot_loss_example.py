@@ -56,7 +56,7 @@ plt.show()
 model_paths = [
     'PointNetMLPJoint/Trained_models/L-_40p_pnmlp_12345678.pt',
     'PointNetMLPJoint/Trained_models/L-_100p_pnmlp_12345678.pt',
-    'VanillaDeepONet/Trained_models/L-_40p_pnmlp_87654321.pt',
+    'VanillaDeepONet/Trained_models/L-_40p_pnmlp_87654321.pt',  # Note: actual filenames will vary
     'VanillaDeepONet/Trained_models/L-_100p_pnmlp_87654321.pt',
 ]
 
